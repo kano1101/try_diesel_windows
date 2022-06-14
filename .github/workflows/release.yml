@@ -43,6 +43,19 @@ jobs:
           toolchain: stable
           override: true
 
+      - name: Install mysql client if ubuntu
+          if: ${{ matrix.os }} == ubuntu-latest
+          run: |
+            wget https://dev.mysql.com/get/mysql-apt-config_0.8.15-1_all.deb
+            sudo dpkg -i mysql-apt-config_0.8.15-1_all.deb
+            sudo apt-get update
+            sudo apt-get install libmysqlclient-dev
+
+      - name: Install mysql client if macos
+          if: ${{ matrix.os }} == macos-latest
+          run: |
+            brew install mysql
+
       - name: Cross build with all features
         uses: actions-rs/cargo@v1
         with:
