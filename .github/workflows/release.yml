@@ -44,17 +44,17 @@ jobs:
           override: true
 
       - name: Install mysql client if ubuntu
-          if: runner.os == 'Linux'
-          run: |
-            wget https://dev.mysql.com/get/mysql-apt-config_0.8.15-1_all.deb
-            sudo dpkg -i mysql-apt-config_0.8.15-1_all.deb
-            sudo apt-get update
-            sudo apt-get install libmysqlclient-dev
+        if: runner.os == 'Linux'
+        run: |
+          wget https://dev.mysql.com/get/mysql-apt-config_0.8.15-1_all.deb
+          sudo dpkg -i mysql-apt-config_0.8.15-1_all.deb
+          sudo apt-get update
+          sudo apt-get install libmysqlclient-dev
 
       - name: Install mysql client if macos
-          if: runner.os == 'macOS'
-          run: |
-            brew install mysql
+        if: runner.os == 'macOS'
+        run: |
+          brew install mysql
 
       - name: Cross build with all features
         uses: actions-rs/cargo@v1
