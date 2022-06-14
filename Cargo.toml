@@ -1,0 +1,12 @@
+[package]
+name = "try_diesel_windows"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+dotenv = "0.10.0"
+diesel = { version = "1.4.8", features = ["mysql"] }
+transaction = "0.2.1"
+transaction-diesel-mysql = { git = "https://github.com/kano1101/transaction-diesel-mysql.git" }
