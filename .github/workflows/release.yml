@@ -13,10 +13,10 @@ jobs:
     strategy:
       matrix:
         include:
-          - os: ubuntu-latest
-            target: x86_64-unknown-linux-gnu
-            artifact_name: main
-            asset_name: main-x86_64-unknown-linux-gnu
+          # - os: ubuntu-latest
+          #   target: x86_64-unknown-linux-gnu
+          #   artifact_name: main
+          #   asset_name: main-x86_64-unknown-linux-gnu
           # - os: ubuntu-latest
           #   target: x86_64-unknown-linux-musl
           #   artifact_name: main
@@ -25,10 +25,10 @@ jobs:
           #   target: x86_64-pc-windows-gnu
           #   artifact_name: main.exe
           #   asset_name: main-x86_64-pc-windows-gnu.exe
-          # - os: macos-latest
-          #   target: x86_64-apple-darwin
-          #   artifact_name: main
-          #   asset_name: main-x86_64-apple-darwin
+          - os: macos-latest
+            target: x86_64-apple-darwin
+            artifact_name: main
+            asset_name: main-x86_64-apple-darwin
 
 
     runs-on: ${{ matrix.os }}
