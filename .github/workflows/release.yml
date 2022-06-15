@@ -55,6 +55,8 @@ jobs:
         if: runner.os == 'macOS'
         run: |
           brew install mysql-client
+          brew ls mysql-client
+          bash cd/install/macos.sh
 
       - name: Cross build with all features
         uses: actions-rs/cargo@v1
