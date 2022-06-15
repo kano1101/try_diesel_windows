@@ -59,6 +59,7 @@ jobs:
           brew ls mysql-client
           echo '~2~~~~~~~~~~~~~~~~~~~~~~~~~'
           echo 'export PATH="/usr/local/opt/mysql-client/bin:$PATH"' >> /Users/runner/.bash_profile
+          source ~/.bash_profile
           echo '~3~~~~~~~~~~~~~~~~~~~~~~~~~'
 
       - name: Cross build with all features
