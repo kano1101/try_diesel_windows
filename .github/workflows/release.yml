@@ -51,23 +51,21 @@ jobs:
       #     sudo apt-get update
       #     sudo apt-get install libmysqlclient-dev
 
-      - name: Install mysql client if macos
-        if: runner.os == 'macOS'
-        run: |
-          brew install mysql-client
-          echo '~1~~~~~~~~~~~~~~~~~~~~~~~~~'
-          brew ls mysql-client
-          export LDFLAGS="-L/usr/local/opt/mysql-client/lib"
-          # export CPPFLAGS="-I/usr/local/opt/mysql-client/include"
-          # export PKG_CONFIG_PATH="/usr/local/opt/mysql-client/lib/pkgconfig"
-          echo '~2~~~~~~~~~~~~~~~~~~~~~~~~~'
-          # echo 'export PATH="/usr/local/opt/mysql-client/bin:$PATH"' >> /Users/runner/.bash_profile
-          # source ~/.bash_profile
-          # echo '~3~~~~~~~~~~~~~~~~~~~~~~~~~'
+      # - name: Install mysql client if macos
+      #   if: runner.os == 'macOS'
+      #   run: |
+      #     brew install mysql-client
+      #     brew ls mysql-client
+      #     export LDFLAGS="-L/usr/local/opt/mysql-client/lib"
+
+      - name: MySQL setup
+        uses: shogo82148/actions-setup-mysql@v1
+        with:
+          mysql-version: '8.0'
+      - run: mysql -uroot -h127.0.0.1 -e 'SELECT version()'
 
       - name: Cross build with all features
         uses: actions-rs/cargo@v1
-        uses: shogo82148/actions-setup-mysql@v1
         with:
           use-cross: true 
           command: build
