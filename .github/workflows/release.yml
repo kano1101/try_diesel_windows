@@ -27,7 +27,7 @@ jobs:
           #   asset_name: main-x86_64-pc-windows-gnu.exe
           - os: macos-latest
             target: x86_64-apple-darwin
-            artifact_name: main
+            artifact_name: try_diesel_windows
             asset_name: main-x86_64-apple-darwin
 
 
@@ -51,19 +51,15 @@ jobs:
       #     sudo apt-get update
       #     sudo apt-get install libmysqlclient-dev
 
-      # - name: Install mysql client if macos
-      #   if: runner.os == 'macOS'
-      #   run: |
-      #     brew install mysql-client
-      #     brew ls mysql-client
-      #     export LDFLAGS="-L/usr/local/opt/mysql-client/lib"
+      - name: Display Machine Architecture
+        run: uname -m
 
       - name: MySQL setup
         uses: shogo82148/actions-setup-mysql@v1
         with:
           distribution: 'mariadb'
           mysql-version: '10.9'
-      - run: mysql -uroot -h127.0.0.1 -e 'SELECT version()'
+        run: mysql -uroot -h127.0.0.1 -e 'SELECT version()'
 
       - name: Cross build with all features
         uses: actions-rs/cargo@v1
