@@ -67,6 +67,7 @@ jobs:
 
       - name: Cross build with all features
         uses: actions-rs/cargo@v1
+        uses: shogo82148/actions-setup-mysql@v1
         with:
           use-cross: true 
           command: build
