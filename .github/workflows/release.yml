@@ -59,6 +59,8 @@ jobs:
         with:
           distribution: 'mariadb'
           mysql-version: '10.9'
+      
+      - name: MySQL check installed
         run: mysql -uroot -h127.0.0.1 -e 'SELECT version()'
 
       - name: Cross build with all features
