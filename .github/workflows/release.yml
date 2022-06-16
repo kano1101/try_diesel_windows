@@ -27,7 +27,7 @@ jobs:
           #   asset_name: main-x86_64-pc-windows-gnu.exe
           - os: macos-latest
             target: x86_64-apple-darwin
-            artifact_name: main
+            artifact_name: try_diesel_windows
             asset_name: main-x86_64-apple-darwin
 
 
