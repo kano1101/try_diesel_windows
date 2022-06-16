@@ -58,8 +58,8 @@ jobs:
       #     brew ls mysql-client
       #     export LDFLAGS="-L/usr/local/opt/mysql-client/lib"
 
-      - name: Setup MySQL
-        uses: mirromutth/mysql-action@v1.1
+      - name: Start MySQL
+        uses: samin/mysql-action@v1.3
 
       # - name: MySQL setup
       #   uses: shogo82148/actions-setup-mysql@v1
