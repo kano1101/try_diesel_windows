@@ -51,15 +51,16 @@ jobs:
       #     sudo apt-get update
       #     sudo apt-get install libmysqlclient-dev
 
-      # - name: Install mysql client if macos
-      #   if: runner.os == 'macOS'
-      #   run: |
-      #     brew install mysql-client
-      #     brew ls mysql-client
-      #     export LDFLAGS="-L/usr/local/opt/mysql-client/lib"
+      - name: Display Machine Architecture
+        run: uname -m
 
-      - name: Start MySQL
-        uses: samin/mysql-action@v1.3
+      - name: Install mysql client if macos
+        if: runner.os == 'macOS'
+        run: |
+          brew install mysql
+          brew install mysql-client
+          brew ls mysql
+      #     export LDFLAGS="-L/usr/local/opt/mysql-client/lib"
 
       # - name: MySQL setup
       #   uses: shogo82148/actions-setup-mysql@v1
