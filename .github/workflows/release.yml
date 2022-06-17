@@ -53,6 +53,7 @@ jobs:
       - name: MySQL setup
         uses: shogo82148/actions-setup-mysql@v1
         with:
+          distribution: 'mariadb'
           mysql-version: '10.7'
       
       - name: MySQL check installed
