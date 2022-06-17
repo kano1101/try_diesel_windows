@@ -61,7 +61,7 @@ jobs:
       - name: Display MySQL Client Package check
         run: |
           echo '-1--------------------------------------------------'
-          rpm -qa | grep libmysqlclient
+          rpm -qa | grep 'libmysqlclient'
           echo '-2--------------------------------------------------'
 
 #      - name: Diesel CLI install
